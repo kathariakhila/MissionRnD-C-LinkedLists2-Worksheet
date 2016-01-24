@@ -18,6 +18,36 @@ struct node {
 	struct node *next;
 };
 
+struct node *reverse(struct node *head){
+	
+
+	//	printf("\nInside reverse"); 
+	struct node *revHead;
+	
+
+	if (head == NULL || head->next == NULL){
+		return head;
+	}
+	
+
+     revHead = reverse(head->next);
+     head->next->next = head;
+     head->next = NULL;
+
+
+     return revHead;
+}
+
+
+
+
 struct node * reverseLinkedList(struct node *head) {
-	return NULL;
+	
+	if (head == NULL)
+		return NULL;
+
+	else{
+		reverse(head);
+	}
+
 }
